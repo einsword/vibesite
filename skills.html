@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Навыки — Legendary</title>
+  <title>Навыки — naplanah</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="header">
     <div class="container header__inner">
-      <a href="index.html" class="logo">Legendary</a>
+      <a href="index.html" class="logo">naplanah</a>
       <nav class="nav">
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
@@ -18,67 +18,81 @@
         <a href="achievements.html">Достижения</a>
         <a href="contact.html">Контакты</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" title="Сменить тему">🌙</button>
     </div>
   </header>
 
   <main>
     <section class="section">
       <div class="container">
-        <h1>Навыки</h1>
-        <p>Проценты приблизительные. Как и мои знания.</p>
+        <h1>Что я умею</h1>
+        <p>Не просто набор технологий, а инструменты для решения конкретных задач.</p>
 
-        <div class="skill">
-          <div class="skill__head"><span>🍺 Пить пиво</span><span>99%</span></div>
-          <div class="skill__bar"><div class="skill__fill" style="width: 99%"></div></div>
-        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>🌐 HTML5 / Семантика</h3>
+            <p>Делаю разметку, которую понимают поисковики и скринридеры. Без лишних контейнеров.</p>
+          </article>
 
-        <div class="skill">
-          <div class="skill__head"><span>😴 Спать</span><span>150%</span></div>
-          <div class="skill__bar"><div class="skill__fill" style="width: 100%"></div></div>
-        </div>
+          <article class="card">
+            <h3>🎨 CSS3 / Flexbox / Grid</h3>
+            <p>Выстраиваю сложные сетки и анимации. Сайт выглядит идеально на любом экране.</p>
+          </article>
 
-        <div class="skill">
-          <div class="skill__head"><span>🎰 Играть в казик</span><span>85%</span></div>
-          <div class="skill__bar"><div class="skill__fill" style="width: 85%"></div></div>
-        </div>
+          <article class="card">
+            <h3>📱 Адаптивность</h3>
+            <p>Проверяю на телефонах, планшетах и ПК. Ничего не разъезжается, кнопки нажимаются.</p>
+          </article>
 
-        <div class="skill">
-          <div class="skill__head"><span>🔍 Умение гуглить</span><span>200%</span></div>
-          <div class="skill__bar"><div class="skill__fill" style="width: 100%"></div></div>
-        </div>
+          <article class="card">
+            <h3>⚙️ JavaScript (база)</h3>
+            <p>Оживляю интерфейсы: переключатели, меню, слайдеры. Работаю с DOM и событиями.</p>
+          </article>
 
-        <div class="skill">
-          <div class="skill__head"><span>💬 Сказать «это легко» и потом 3 дня дебажить</span><span>100%</span></div>
-          <div class="skill__bar"><div class="skill__fill" style="width: 100%"></div></div>
-        </div>
+          <article class="card">
+            <h3>🐙 Git / GitHub</h3>
+            <p>Храню код в репозиториях, делаю коммиты. Выкладываю проекты в сеть через GitHub Pages.</p>
+          </article>
 
-        <div class="skill">
-          <div class="skill__head"><span>🏋️ Спорт (завтра точно начну)</span><span>2%</span></div>
-          <div class="skill__bar"><div class="skill__fill" style="width: 2%"></div></div>
+          <article class="card">
+            <h3>🎯 Figma</h3>
+            <p>Читаю макеты, забираю нужные размеры, цвета и отступы. Верстаю пиксель в пиксель.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section section--gray">
       <div class="container">
-        <h2>Чего я НЕ умею</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>📱 Отвечать на звонки</h3>
-            <p>Если не взял трубку — я либо сплю, либо делаю вид.</p>
-          </article>
-          <article class="card">
-            <h3>🛌 Вставать с кровати с первого раза</h3>
-            <p>Будильник — это просто рекомендация.</p>
-          </article>
-          <article class="card">
-            <h3>🙅 Говорить «нет»</h3>
-            <p>Беру всё. Потом жалею.</p>
-          </article>
-        </div>
+        <h2>Мой стек</h2>
+        <p>Работаю с чистым кодом. Никаких тяжелых конструкторов и лишних библиотек, если в них нет необходимости.</p>
+        <ul class="contact-list">
+          <li>Редактор: VS Code, Spck Editor</li>
+          <li>Хостинг: GitHub Pages, Netlify</li>
+          <li>Графика: Figma</li>
+        </ul>
       </div>
     </section>
   </main>
 
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+      body.classList.add('light-theme');
+      toggleBtn.textContent = '☀️';
+    }
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      if (body.classList.contains('light-theme')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
 </body>
 </html>
