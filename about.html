@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обо мне — Legendary</title>
+  <title>Обо мне — naplanah</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="header">
     <div class="container header__inner">
-      <a href="index.html" class="logo">Legendary</a>
+      <a href="index.html" class="logo">naplanah</a>
       <nav class="nav">
         <a href="index.html">Главная</a>
         <a href="about.html" class="active">Обо мне</a>
@@ -18,6 +18,7 @@
         <a href="achievements.html">Достижения</a>
         <a href="contact.html">Контакты</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" title="Сменить тему">🌙</button>
     </div>
   </header>
 
@@ -25,9 +26,8 @@
     <section class="section">
       <div class="container">
         <h1>Обо мне</h1>
-        <p>Родился с мышкой в руке. Врачи были в шоке. Мама до сих пор вспоминает, как я в роддоме пытался открыть заметки.</p>
-        <p>В 3 года сверстал первую страницу. В 4 — удалил, потому что было хуёво. С тех пор перфекционист.</p>
-        <p>Двигаюсь на кофе. Код пишу на чистой злости и остатках мотивации.</p>
+        <p>Беру готовый дизайн и превращаю его в живой сайт, который нормально работает на телефоне и на компьютере. Без сложных конструкторов, на чистом коде.</p>
+        <p>Работаю без лишнего шума: обсудили задачу, я назвал сроки и сделал. Главное — результат, а не пустая болтовня.</p>
       </div>
     </section>
 
@@ -36,16 +36,16 @@
         <h2>Ключевые факты</h2>
         <div class="cards">
           <article class="card">
-            <h3>🎂 Возраст</h3>
-            <p>30 лет. Опыт — 47. Не спрашивайте.</p>
-          </article>
-          <article class="card">
-            <h3>📍 Локация</h3>
-            <p>Где-то между Гетто и реальным миром.</p>
+            <h3>💻 Подход</h3>
+            <p>Пишу понятный код без мусора. Если проект придется передать другому разработчику — он разберется.</p>
           </article>
           <article class="card">
             <h3>⚡ Статус</h3>
-            <p>Открыт к предложениям. Но не к критике.</p>
+            <p>Свободен для новых задач. Отвечаю быстро, берусь за интересные проекты.</p>
+          </article>
+          <article class="card">
+            <h3>🛡️ Надежность</h3>
+            <p>Сайт, который не сломается от первого обновления. Верстка с запасом прочности.</p>
           </article>
         </div>
       </div>
@@ -56,21 +56,40 @@
         <h2>Мои принципы</h2>
         <div class="cards">
           <article class="card">
-            <h3>🔧 Принцип №1</h3>
-            <p>Если работает — не трогай. Если не работает — тоже не трогай, само пройдёт.</p>
+            <h3>🔧 Дело прежде всего</h3>
+            <p>Если код работает, но его сложно поддерживать — это плохой код. Пишу так, чтобы разобрался даже новичок.</p>
           </article>
           <article class="card">
-            <h3>👁️ Принцип №2</h3>
-            <p>Хороший код — это код, который никто не видел.</p>
+            <h3>👁️ Честность</h3>
+            <p>Если задача мне не по силам или требует больше времени — я скажу об этом сразу, а не буду тянуть до дедлайна.</p>
           </article>
           <article class="card">
-            <h3>⏰ Принцип №3</h3>
-            <p>Дедлайн — это состояние души.</p>
+            <h3>⏰ Дисциплина</h3>
+            <p>Сдаю работу вовремя. Главное — результат, а не пустые обещания.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+      body.classList.add('light-theme');
+      toggleBtn.textContent = '☀️';
+    }
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      if (body.classList.contains('light-theme')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
 </body>
 </html>
