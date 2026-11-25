@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты — Legendary</title>
+  <title>Контакты — naplanah</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="header">
     <div class="container header__inner">
-      <a href="index.html" class="logo">Legendary</a>
+      <a href="index.html" class="logo">naplanah</a>
       <nav class="nav">
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
@@ -18,6 +18,7 @@
         <a href="achievements.html">Достижения</a>
         <a href="contact.html" class="active">Контакты</a>
       </nav>
+      <button class="theme-toggle" id="theme-toggle" title="Сменить тему">🌙</button>
     </div>
   </header>
 
@@ -25,42 +26,59 @@
     <section class="section">
       <div class="container">
         <h1>Контакты</h1>
-        <p>Пишите. Отвечу когда-нибудь. Или нет.</p>
+        <p>Готов обсудить ваш проект. Отвечаю в течение дня.</p>
 
         <ul class="contact-list">
-          <li>📧 Почта: <a href="mailto:me@example.com">me@example.com</a></li>
-          <li>💬 Телега: <a href="https://t.me/">@я_тут_главный</a></li>
-          <li>📱 Телефон: +0 (000) 000-00-00 (не звоните)</li>
-          <li>🕊️ Голубиная почта: голубь сдох, сорян</li>
-          <li>📠 Факс: есть, но я не знаю, где он</li>
+          <li>💬 Telegram: <a href="https://t.me/einsword" target="_blank">@einsword</a></li>
+          <li>📸 Instagram: <a href="https://instagram.com/naplanah" target="_blank">@naplanah</a></li>
+          <li>💼 GitHub: <a href="https://github.com/einsword" target="_blank">github.com/einsword</a></li>
         </ul>
 
         <p style="margin-top: 28px;">
-          <button class="btn" onclick="alert('Передумал. Не пишите.')">Написать мне</button>
+          <a href="https://t.me/einsword" class="btn" target="_blank">Написать в Telegram</a>
         </p>
       </div>
     </section>
 
     <section class="section section--gray">
       <div class="container">
-        <h2>График работы</h2>
+        <h2>Формат работы</h2>
         <div class="cards">
           <article class="card">
-            <h3>🗓️ Пн — Пт</h3>
-            <p>Когда захочу.</p>
+            <h3>🗓️ Сроки</h3>
+            <p>Обсуждаем задачу, я называю реальные сроки. Никаких затягиваний.</p>
           </article>
           <article class="card">
-            <h3>🎉 Сб — Вс</h3>
-            <p>Тоже когда захочу.</p>
+            <h3>💰 Оплата</h3>
+            <p>Работаю по предоплате 50%. Отдаю исходники только после полной оплаты.</p>
           </article>
           <article class="card">
-            <h3>🎊 Праздники</h3>
-            <p>Не работаю. Как и в будни.</p>
+            <h3>🤝 Поддержка</h3>
+            <p>После сдачи проекта помогаю с правками и мелкими доработками.</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+      body.classList.add('light-theme');
+      toggleBtn.textContent = '☀️';
+    }
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light-theme');
+      if (body.classList.contains('light-theme')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
 </body>
 </html>
